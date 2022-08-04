@@ -15,7 +15,7 @@ RSpec.describe Enigma do
     it 'encrypts' do
       encrypted_hash = 
       {
-        encryption: "keder ohulw",
+        message: "keder ohulw",
         key: "02715",
         date: "040895"
       }
@@ -24,16 +24,20 @@ RSpec.describe Enigma do
     end
 
     it 'handles edge case' do
-      date = (Date.today).strftime("%d%m%y")
-
       encrypted_hash = 
       {
         message: "keder ohulw",
         key: "02715",
-        date: date
+        date: "040895"
       }
 
+      allow(enigma).to receive(:todays_date).and_return("040895")
+
       expect(enigma.encrypt("hello world", "02715")).to eq encrypted_hash
+
+      allow(enigma).to receive(:random_key).and_return("02715")
+      
+      expect(enigma.encrypt("hello world")).to eq encrypted_hash
     end
   end
 
@@ -41,12 +45,12 @@ RSpec.describe Enigma do
     it 'decrypts' do
       decrypted_hash = 
       {
-        encryption: "hello world",
+        message: "hello world",
         key: "02715",
         date: "040895"
       }
 
-      expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq encrypted_hash
+      expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq decrypted_hash
     end
   end
 end
