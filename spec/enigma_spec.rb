@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'date'
 require_relative '../lib/enigma'
 
 RSpec.describe Enigma do
@@ -20,6 +21,19 @@ RSpec.describe Enigma do
       }
 
       expect(enigma.encrypt("hello world", "02715", "040895")).to eq encrypted_hash
+    end
+
+    it 'handles edge case' do
+      date = (Date.today).strftime("%d%m%y")
+
+      encrypted_hash = 
+      {
+        message: "keder ohulw",
+        key: "02715",
+        date: date
+      }
+
+      expect(enigma.encrypt("hello world", "02715")).to eq encrypted_hash
     end
   end
 
