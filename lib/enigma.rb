@@ -9,6 +9,7 @@ class Enigma
       key: key,
       date: date
     }
+    require 'pry'; binding.pry
   end
 
   def decrypt(ciper, key, date = todays_date())
@@ -21,7 +22,7 @@ class Enigma
   end
 
   def random_key
-    (0..4).map {rand(9)}.join
+    (0..4).map {rand(9)}
   end
 
   def todays_date
