@@ -7,13 +7,13 @@ RSpec.describe Shiftable do
     it 'generates key' do
       returned_hash = 
       {
-        A: 02,
-        B: 27,
-        C: 71,
-        D: 15
+        A: "02",
+        B: "27",
+        C: "71",
+        D: "15"
       }
 
-      expect(Shiftable.key(key)).to eq returned_hash
+      expect(Shiftable.shift_key(key)).to eq returned_hash
     end
   end
 end
