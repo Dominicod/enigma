@@ -2,7 +2,7 @@ require 'spec_helper'
 require_relative '../lib/shiftable'
 
 RSpec.describe Shiftable do
-  let(:key) {key = [0,2,7,1,5]}
+  let(:key) {key = ("02715")}
   describe '#key' do
     it 'generates key' do
       returned_hash = 
