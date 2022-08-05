@@ -3,21 +3,11 @@ class Enigma
   end
 
   def encrypt(message, key = random_key(), date = todays_date())
-    returned_hash = 
-    {
-      message: message,
-      key: key,
-      date: date
-    }
+    # TODO: Implement encrypt
   end
 
   def decrypt(ciper, key, date = todays_date())
-    returned_hash = 
-    {
-      message: ciper,
-      key: key,
-      date: date
-    }
+    # TODO: Implement decrypt
   end
 
   def random_key
