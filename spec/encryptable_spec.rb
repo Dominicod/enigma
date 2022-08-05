@@ -14,7 +14,7 @@ RSpec.describe Encryptable do
 
   describe '#decrypt_message' do
     it 'decrypts the message' do
-      expect(Encryptable.encrypt_message(decrypt_message, key, date)).to eq(encrypt_message)
+      expect(Encryptable.decrypt_message(decrypt_message, key, date)).to eq(encrypt_message)
     end
   end
 end
