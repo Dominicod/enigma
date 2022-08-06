@@ -1,4 +1,7 @@
+require_relative ('encryptable')
+
 class Enigma
+  include Encryptable
   def initialize
   end
 
