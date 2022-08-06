@@ -6,6 +6,7 @@ class Enigma
   end
 
   def encrypt(message, key = random_key(), date = todays_date())
+    date = todays_date() if date == nil
     encryped_message = Encryptable.encrypt_message(message, key, date)
     returned_hash = 
     {
@@ -16,6 +17,7 @@ class Enigma
   end
 
   def decrypt(ciper, key, date = todays_date())
+    date = todays_date() if date == nil
     decryped_message = Encryptable.decrypt_message(ciper, key, date)
     returned_hash = 
     {
