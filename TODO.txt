@@ -1,0 +1,1 @@
+Fix glitch with the space in the character_set array being used
