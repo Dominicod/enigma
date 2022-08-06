@@ -29,6 +29,5 @@ module Encryptable
       end
     end
       encryption.join
-      require 'pry'; binding.pry
   end
 end
