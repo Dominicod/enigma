@@ -22,7 +22,7 @@ RSpec.describe Enigma do
       expect(enigma.encrypt("hello world", "02715", "040895")).to eq encrypted_hash
     end
 
-    it 'handles edge case' do
+    it 'handles #encrypt edge case' do
       encrypted_hash = 
       {
         message: "keder ohulw",
@@ -53,6 +53,22 @@ RSpec.describe Enigma do
       }
 
       expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq decrypted_hash
+    end
+
+    it 'handles #decrypt edge case' do
+      decrypted_hash = 
+        {
+          message: "hello world",
+          key: "02715",
+          date: "040895"
+        }
+
+      enigma_mock = double('enigma')
+
+      allow(enigma_mock).to receive(:decrypt).and_return(decrypted_hash)
+      allow(enigma_mock).to receive(:todays_date).and_return("040895")
+
+      expect(enigma_mock.decrypt("keder ohulw", "02715")).to eq decrypted_hash
     end
   end
 
