@@ -4,6 +4,7 @@ require_relative '../lib/shiftable'
 RSpec.describe Shiftable do
   let(:key) {key = "02715"}
   let(:date) {date = "040895"}
+  
   describe '#key' do
     it 'generates key' do
       returned_hash = 
