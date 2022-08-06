@@ -13,17 +13,17 @@ class Enigma
   end
 
   def decrypt(ciper, key, date = todays_date())
-    # decryped_message = Encryptable.decrypt_message(ciper, key, date)
-    # returned_hash = 
-    # {
-    #   message: decryped_message,
-    #   key: key,
-    #   date: date
-    # }
+    decryped_message = Encryptable.decrypt_message(ciper, key, date)
+    returned_hash = 
+    {
+      message: decryped_message,
+      key: key,
+      date: date
+    }
   end
 
   def random_key
-    (0..4).map {rand(9)}.join
+    ((Random.rand(100000).to_i).to_s).rjust(5, '0')
   end
 
   def todays_date
