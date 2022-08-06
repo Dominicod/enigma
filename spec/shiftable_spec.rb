@@ -20,7 +20,6 @@ RSpec.describe Shiftable do
 
   describe '#offset' do
     it 'generates offset' do
-      shift_key = Shiftable.shift_key(key)
       returned_hash = 
       {
         A: 3,
@@ -29,7 +28,7 @@ RSpec.describe Shiftable do
         D: 20
       }
 
-      expect(Shiftable.offset(date, shift_key)).to eq returned_hash
+      expect(Shiftable.shift(date, key)).to eq returned_hash
     end
   end
 end
