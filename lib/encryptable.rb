@@ -1,7 +1,4 @@
-require_relative 'shiftable'
 module Encryptable
-  include Shiftable
-
   def self.encrypt_message(encrypt_message, key, date)
     final_shift = Shiftable.shift(date, key)
     encryption = Array.new
