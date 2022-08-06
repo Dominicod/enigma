@@ -6,6 +6,7 @@ RSpec.describe Encryptable do
   let(:decrypt_message) {m = "keder ohulw"}
   let(:key) {key = "02715"}
   let(:date) {date = "040895"}
+
   describe '#encrypt_message' do
     it 'encrypts the message' do
       expect(Encryptable.encrypt_message(encrypt_message, key, date)).to eq(decrypt_message)
