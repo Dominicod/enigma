@@ -1,13 +1,18 @@
 require_relative 'lib/enigma.rb'
+require_relative 'lib/runnerable.rb'
 
-enigma = Enigma.new
+if ARGV[0] && ARGV[1] != nil && File.file?("./docs/#{ARGV[0]}") != false && File.extname("./docs/#{ARGV[0]}") == '.txt' && File.extname("#{ARGV[1]}") == '.txt'
+  enigma = Enigma.new
 
-read_file = ARGV[0]
-write_file = ARGV[1]
+  ARGV[2] = enigma.random_key() if ARGV[2] == nil
+  ARGV[3] = enigma.todays_date() if ARGV[3] == nil
 
-message = (File.readlines(read_file).map(&:chomp)).join
-hash = enigma.encrypt(message)
+  while ARGV[2].length != 5
+    puts "\n\e[#{31}m#{}ERR: Please enter a valid key. (Must be 5 digits)\e[0m\n\n"
+    ARGV[2] = STDIN.gets.chomp
+  end
 
-File.write(write_file, hash[:message])
-
-puts "Created '#{write_file}' with the key #{hash[:key]} and date #{hash[:date]}"
+  Runnerable.CLI_output(enigma, "encrypt")
+else
+  Runnerable.CLI_output_err
+end
