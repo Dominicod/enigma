@@ -2,8 +2,8 @@ require 'spec_helper'
 require_relative '../lib/enigma'
 
 RSpec.describe Enigma do
-  let(:enigma) {enigma = Enigma.new}
-  
+  let(:enigma) { enigma = Enigma.new }
+
   describe '.enigma_intialize' do
     it 'instantiates' do
       expect(enigma).to be_instance_of described_class
@@ -12,63 +12,63 @@ RSpec.describe Enigma do
 
   describe '#encrypt' do
     it 'encrypts' do
-      encrypted_hash = 
-      {
-        message: "keder ohulw",
-        key: "02715",
-        date: "040895"
-      }
+      encrypted_hash =
+        {
+          message: 'keder ohulw',
+          key: '02715',
+          date: '040895'
+        }
 
-      expect(enigma.encrypt("hello world", "02715", "040895")).to eq encrypted_hash
+      expect(enigma.encrypt('hello world', '02715', '040895')).to eq encrypted_hash
     end
 
     it 'handles #encrypt edge case' do
-      encrypted_hash = 
-      {
-        message: "keder ohulw",
-        key: "02715",
-        date: "040895"
-      }
+      encrypted_hash =
+        {
+          message: 'keder ohulw',
+          key: '02715',
+          date: '040895'
+        }
 
       enigma_mock = double('enigma')
 
       allow(enigma_mock).to receive(:encrypt).and_return(encrypted_hash)
-      allow(enigma_mock).to receive(:todays_date).and_return("040895")
+      allow(enigma_mock).to receive(:todays_date).and_return('040895')
 
-      expect(enigma_mock.encrypt("hello world", "02715")).to eq encrypted_hash
+      expect(enigma_mock.encrypt('hello world', '02715')).to eq encrypted_hash
 
-      allow(enigma_mock).to receive(:random_key).and_return("02715")
-      
-      expect(enigma_mock.encrypt("hello world")).to eq encrypted_hash
+      allow(enigma_mock).to receive(:random_key).and_return('02715')
+
+      expect(enigma_mock.encrypt('hello world')).to eq encrypted_hash
     end
   end
 
   describe '#decrypt' do
     it 'decrypts' do
-      decrypted_hash = 
-      {
-        message: "hello world",
-        key: "02715",
-        date: "040895"
-      }
+      decrypted_hash =
+        {
+          message: 'hello world',
+          key: '02715',
+          date: '040895'
+        }
 
-      expect(enigma.decrypt("keder ohulw", "02715", "040895")).to eq decrypted_hash
+      expect(enigma.decrypt('keder ohulw', '02715', '040895')).to eq decrypted_hash
     end
 
     it 'handles #decrypt edge case' do
-      decrypted_hash = 
+      decrypted_hash =
         {
-          message: "hello world",
-          key: "02715",
-          date: "040895"
+          message: 'hello world',
+          key: '02715',
+          date: '040895'
         }
 
       enigma_mock = double('enigma')
 
       allow(enigma_mock).to receive(:decrypt).and_return(decrypted_hash)
-      allow(enigma_mock).to receive(:todays_date).and_return("040895")
+      allow(enigma_mock).to receive(:todays_date).and_return('040895')
 
-      expect(enigma_mock.decrypt("keder ohulw", "02715")).to eq decrypted_hash
+      expect(enigma_mock.decrypt('keder ohulw', '02715')).to eq decrypted_hash
     end
   end
 

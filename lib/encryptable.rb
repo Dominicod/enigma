@@ -9,13 +9,13 @@ module Encryptable
 
   def self.decrypt_message(message, key, date)
     final_shift = Shiftable.shift(date, key)
-    shift_values = (final_shift.transform_values {|v| -v}).values
+    shift_values = (final_shift.transform_values { |v| -v }).values
     crypt(message, shift_values)
   end
 
-  def self::shovel(letter, shift_values, cryption, counter)
+  def self.shovel(letter, shift_values, cryption, counter)
     if letter.ord >= 97 && letter.ord <= 122
-      character_set = ("a".."z").to_a << "z"
+      character_set = ('a'..'z').to_a << 'z'
       set_index = character_set.find_index(letter)
       cryption << character_set.rotate(shift_values[counter] + set_index).first
     else
@@ -23,10 +23,10 @@ module Encryptable
     end
   end
 
-  def self::crypt(message, shift_values)
-    cryption = Array.new
+  def self.crypt(message, shift_values)
+    cryption = []
     counter = 0
-    message.downcase.each_char.with_index do |letter, index|
+    message.downcase.each_char.with_index do |letter, _index|
       counter = 0 if counter == 4
       shovel(letter, shift_values, cryption, counter)
       counter += 1
