@@ -12,7 +12,7 @@ if ARGV[0] && ARGV[1] != nil && File.file?("./docs/#{ARGV[0]}") != false && File
     ARGV[2] = STDIN.gets.chomp
   end
 
-  Runnerable.CLI_output(enigma)
+  Runnerable.CLI_output(enigma, "encrypt")
 else
   Runnerable.CLI_output_err
 end

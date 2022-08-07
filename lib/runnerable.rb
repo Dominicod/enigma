@@ -1,12 +1,17 @@
 module Runnerable
-  def self.CLI_output(enigma)
+  def self.CLI_output(enigma, crypt)
     while ARGV[3].length != 6
       puts "\n\e[#{31}m#{}ERR: Please enter a valid date. (Must be 6 digits in: DDMMYY)\e[0m\n\n"
       ARGV[3] = STDIN.gets.chomp 
     end
   
     message = (File.readlines("./docs/#{ARGV[0]}").map(&:chomp)).join
-    hash = enigma.decrypt(message, ARGV[2], ARGV[3])
+
+    if crypt == "decrypt"
+      hash = enigma.decrypt(message, ARGV[2], ARGV[3])
+    else
+      hash = enigma.encrypt(message, ARGV[2], ARGV[3])
+    end
   
     File.write("./docs/#{ARGV[1]}", hash[:message])
   
