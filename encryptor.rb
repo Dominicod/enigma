@@ -1,8 +1,8 @@
 require_relative 'lib/enigma.rb'
 
-if ARGV[0] || ARGV[1] != nil
+if ARGV[0] && ARGV[1] != nil
   enigma = Enigma.new
-  
+
   ARGV[2] = enigma.random_key() if ARGV[2] == nil
   ARGV[3] = enigma.todays_date() if ARGV[3] == nil
 
@@ -11,7 +11,7 @@ if ARGV[0] || ARGV[1] != nil
 
   File.write("./docs/#{ARGV[1]}", hash[:message])
 
-  puts "Created '#{"#{ARGV[1]}"}' in docs with the key #{hash[:key]} and date #{hash[:date]}"
+  puts "\nCreated \e[#{32}m#{}'#{"#{ARGV[1]}"}'\e[0m in docs with the key \e[#{33}m#{}#{hash[:key]}\e[0m and date \e[#{33}m#{}#{hash[:date]}\e[0m\n\n"
 else
-  puts "ERR: Please enter a file-name to read and a file-name to write to."
+  puts "\n\e[#{31}m#{}ERR:\e: Please enter a file-name to read and a file-name to write to.\n\n"
 end
