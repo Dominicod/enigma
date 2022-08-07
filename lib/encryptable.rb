@@ -13,14 +13,14 @@ module Encryptable
     crypt(message, shift_values)
   end
 
-  def self::shift(letter, shift_values, cryption, counter)
-      if letter.ord >= 97 && letter.ord <= 122
-        character_set = ("a".."z").to_a << " "
-        set_index = character_set.find_index(letter)
-        cryption << character_set.rotate(shift_values[counter] + set_index).first
-      else
-        cryption << letter
-      end
+  def self::shovel(letter, shift_values, cryption, counter)
+    if letter.ord >= 97 && letter.ord <= 122
+      character_set = ("a".."z").to_a << " "
+      set_index = character_set.find_index(letter)
+      cryption << character_set.rotate(shift_values[counter] + set_index).first
+    else
+      cryption << letter
+    end
   end
 
   def self::crypt(message, shift_values)
@@ -28,7 +28,7 @@ module Encryptable
     counter = 0
     message.downcase.each_char.with_index do |letter, index|
       counter = 0 if counter == 4
-      shift(letter, shift_values, cryption, counter)
+      shovel(letter, shift_values, cryption, counter)
       counter += 1
     end
     cryption.join
