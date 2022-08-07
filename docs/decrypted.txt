@@ -1,1 +1,1 @@
-i love you dominic martin o'donnell.
+i'm not totally sure what you are asking, but spaces are required to be encrypted and decrypted. i suppose if you have a different way you'd like to account for that outside of the character set you can, but if you algorithm is working correctly, it should encrypt to match the output in the project description when using that same key and date combo.

@@ -14,8 +14,8 @@ module Encryptable
   end
 
   def self.shovel(letter, shift_values, cryption, counter)
-    if letter.ord >= 97 && letter.ord <= 122
-      character_set = ('a'..'z').to_a << ' '
+    character_set = ('a'..'z').to_a << " "
+    if character_set.include?(letter)
       set_index = character_set.find_index(letter)
       cryption << character_set.rotate(shift_values[counter] + set_index).first
     else
