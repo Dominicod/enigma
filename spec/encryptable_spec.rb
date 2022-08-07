@@ -2,10 +2,10 @@ require 'spec_helper'
 require_relative '../lib/encryptable'
 
 RSpec.describe Encryptable do
-  let(:encrypt_message) {m = "hello world"}
-  let(:decrypt_message) {m = "keder ohulw"}
-  let(:key) {key = "02715"}
-  let(:date) {date = "040895"}
+  let(:encrypt_message) { m = 'hello world' }
+  let(:decrypt_message) { m = 'keder ohulw' }
+  let(:key) { key = '02715' }
+  let(:date) { date = '040895' }
 
   describe '#encrypt_message' do
     it 'encrypts the message' do
@@ -21,27 +21,27 @@ RSpec.describe Encryptable do
 
   describe '#shovel' do
     it 'shovels coverted letter' do
-      letter = "h"
+      letter = 'h'
       shift_values = [3, 27, 73, 20]
-      cryption = Array.new
+      cryption = []
       counter = 0
 
       Encryptable.shovel(letter, shift_values, cryption, counter)
 
-      expect(cryption).to eq ["k"]
-      
+      expect(cryption).to eq ['k']
+
       counter += 1
-      letter = "e"
+      letter = 'e'
 
       Encryptable.shovel(letter, shift_values, cryption, counter)
 
-      expect(cryption).to eq ["k", "e"]
+      expect(cryption).to eq %w[k e]
     end
   end
 
   describe '#crypt' do
     it 'returns the crypted message' do
-      message = "hello world"
+      message = 'hello world'
       shift_values = [3, 27, 73, 20]
 
       expect(Encryptable.crypt(message, shift_values)).to eq decrypt_message
