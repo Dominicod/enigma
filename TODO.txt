@@ -1,2 +1,0 @@
-Fix: glitch with the space in the character_set array being used
-Feat: allow the user to input their own key and date for encryption rather than random and todays_date
