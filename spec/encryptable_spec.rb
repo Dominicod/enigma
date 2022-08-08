@@ -36,6 +36,13 @@ RSpec.describe Encryptable do
       Encryptable.shovel(letter, shift_values, cryption, counter)
 
       expect(cryption).to eq %w[k e]
+
+      counter += 1
+      letter = '!'
+
+      Encryptable.shovel(letter, shift_values, cryption, counter)
+
+      expect(cryption).to eq %w[k e !]
     end
   end
 
