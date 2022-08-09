@@ -5,11 +5,11 @@ message, date, key. i then build am algorithm that can decrypt this word/sentenc
 
 ## Self Assessment
 
-Functionality: 3. Meets Expectations
-Object Oriented Programming: 4. Two modules created, both sensable.
-Ruby Conventions and Mechanics: 4. No methods are more than 10 lines, code is proper, most enum's have been correctly choosen.
-Test Driven Development: 4. Use of stubs and mocks, every method is tested. Coverage 100%.
-Version Control: 4. More than 50 commits, 10 branches. All commits purposeful, branches named correctly.
+* Functionality: 3. Meets Expectations
+* Object Oriented Programming: 4. Two modules created, both sensable.
+* Ruby Conventions and Mechanics: 4. No methods are more than 10 lines, code is proper, most enum's have been correctly choosen.
+* Test Driven Development: 4. Use of stubs and mocks, every method is tested. Coverage 100%.
+* Version Control: 4. More than 50 commits, 10 branches. All commits purposeful, branches named correctly.
 
 ## Test the encryption on your local machine
 
