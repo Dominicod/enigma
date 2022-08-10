@@ -26,7 +26,7 @@ module Encryptable
   def self.crypt(message, shift_values)
     cryption = []
     counter = 0
-    message.downcase.each_char.with_index do |letter, _index|
+    message.downcase.each_char.each do |letter|
       counter = 0 if counter == 4
       shovel(letter, shift_values, cryption, counter)
       counter += 1
