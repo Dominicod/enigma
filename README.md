@@ -1,7 +1,7 @@
 # Enigma
 
 In this project I used Ruby to build an algorithm to encrypt a word/sentence using a caesar cipher that took in the arguments of;
-message, date, key. i then build am algorithm that can decrypt this word/sentence.
+message, date, key. I then build an algorithm that can decrypt this word/sentence.
 
 ## Self Assessment
 
